@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  background-image: url(../images/Tiger.png)
 }
 
 
@@ -11,8 +12,8 @@ body {
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
-  justify-content: space-between;
-  padding: 1px;
+  justify-content: flex-end;
+  padding: 5px;
 }
 
 textarea {
@@ -28,7 +29,7 @@ textarea {
 
 .jumbotron {
   text-align: center;
-  background-color: transparent;
+  background-color: cornflowerblue;
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
@@ -38,7 +39,7 @@ textarea {
   text-align: center;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
-  background-color: transparent;
+  background-color: #06aed5;
   color: black;
   border-left: 2px dashed black;
   border-top: 2px solid black;
@@ -64,17 +65,17 @@ textarea {
 
 .past {
   background-color: #d3d3d3;
-  color: white;
+  color: black;
 }
 
 .present {
-  background-color: #ff6961;
-  color: white;
+  background-color: firebrick;
+  color: black;
 }
 
 .future {
-  background-color: #77dd77;
-  color: white;
+  background-color: darkgreen;
+  color: black;
 }
 
 .saveBtn {
