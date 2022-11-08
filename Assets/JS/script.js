@@ -1,6 +1,6 @@
-var m = moment();
+var now = moment();
 
-$("#currentDay").text(moment().format('LLLL'));
+$("#currentDay").text(now.format('LLLL'));
 
 $(document).ready( function() {
     colorChange ();
@@ -9,18 +9,18 @@ $(document).ready( function() {
 
 function colorChange () {
     
-    var currentTime = moment().hours();
-    console.log("Current Time" + currentTime);
+    var currentHour = moment().hours();
+    console.log("Current Time" + currentHour);
 
     $(".input").each(function () {
-        var scheduledTime = parseInt($(this).attr("id"));
-        console.log(scheduledTime);
+        var schedHour = parseInt($(this).attr("id"));
+        console.log(schedHour);
 
-        if (currentTime > scheduledTime) {
+        if (currentHour > schedHour) {
             $(this).removeClass("future");
             $(this).removeClass("present");
             $(this).addClass("past");
-        } else if (currentTime < scheduledTime) {
+        } else if (currentHour < schedHour) {
             $(this).removeClass("present");
             $(this).removeClass("past");
             $(this).addClass("future");
@@ -32,27 +32,27 @@ function colorChange () {
     });
 }
 
-var eventText;
-var eventTime;
+var planInput;
+var planHour;
 
 $(".saveBtn").click(function() {
-    eventText = $(this).siblings(".input").val();
-    console.log(eventText);
-    eventTime = $(this).siblings(".hour").text();
-    console.log(eventTime);
-    localStorage.setItem(eventTime, JSON.stringify(eventText));
-
+    planInput = $(this).siblings(".input").val();
+    console.log(planInput);
+    planHour = $(this).siblings(".time-block").text();
+    console.log(planHour);
+    localStorage.setItem(planHour, JSON.stringify(planInput));
+    preventDefault();
     colorChange ();
     renderText ();
     
 });
 
-$(".deleteBtn").click(function() {
+$(".delBtn").click(function() {
     eventText = $(this).siblings(".input").val("");
     eventText = $(this).siblings(".input").val();
-    eventTime = $(this).siblings(".hour").text();
+    eventTime = $(this).siblings(".time-block").text();
     localStorage.setItem(eventTime, JSON.stringify(eventText));
-
+    preventDefault();
     colorChange ();
     renderText ();
 
@@ -61,40 +61,39 @@ $(".deleteBtn").click(function() {
     // Enter and Display Events
 function renderText () {
 
-    var saveEventText9 = JSON.parse(localStorage.getItem("9:00 am"));
+    let calText9 = JSON.parse(localStorage.getItem("9:00"));
     $("#9").val("");
-    $("#9").val(saveEventText9);
+    $("#9").val(calText9);
     
-    var saveEventText10 = JSON.parse(localStorage.getItem("10:00 am"));
+    let calText10 = JSON.parse(localStorage.getItem("10:00"));
     $("#10").val("");
-    $("#10").val(saveEventText10);
+    $("#10").val(calText10);
     
-    var saveEventText11 = JSON.parse(localStorage.getItem("11:00 am"));
+    let calText11 = JSON.parse(localStorage.getItem("11:00"));
     $("#11").val("");
-    $("#11").val(saveEventText11);
+    $("#11").val(calText11);
     
-    var saveEventText12 = JSON.parse(localStorage.getItem("12:00 pm"));
+    let calText12 = JSON.parse(localStorage.getItem("12:00"));
     $("#12").val("");
-    $("#12").val(saveEventText12);
+    $("#12").val(calText12);
     
-    var saveEventText1 = JSON.parse(localStorage.getItem("1:00 pm"));
+    let calText13 = JSON.parse(localStorage.getItem("13:00"));
     $("#13").val("");
-    $("#13").val(saveEventText1);
+    $("#13").val(calText13);
 
-    var saveEventText2 = JSON.parse(localStorage.getItem("2:00 pm"));
+    let calText14 = JSON.parse(localStorage.getItem("14:00"));
     $("#14").val("");
-    $("#14").val(saveEventText2);
+    $("#14").val(calText14);
 
-    var saveEventText3 = JSON.parse(localStorage.getItem("3:00 pm"));
+    let calText15 = JSON.parse(localStorage.getItem("15:00"));
     $("#15").val("");
-    $("#15").val(saveEventText3);
+    $("#15").val(calText15);
 
-    var saveEventText4 = JSON.parse(localStorage.getItem("4:00 pm"));
+    let calText16 = JSON.parse(localStorage.getItem("16:00"));
     $("#16").val("");
-    $("#16").val(saveEventText4);
+    $("#16").val(calText16);
 
-    var saveEventText5 = JSON.parse(localStorage.getItem("5:00 pm"));
+    let calText17 = JSON.parse(localStorage.getItem("17:00"));
     $("#17").val("");
-    $("#17").val(saveEventText5);
-    
+    $("#17").val(calText17);
 };
