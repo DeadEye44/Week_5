@@ -8,7 +8,7 @@ This week my task was to create a simple calendar application that allows a user
 
 The following image shows the web application's appearance and functionality:
 
-![The Work Day Scheduler Application displays the hours of the day with input text fields that can be saved to the DOM](./Assets/images/Screenshot.png)
+![The Work Day Scheduler Application displays the hours of the day with input text fields that can be saved to, and deleted from the DOM](./Assets/images/Screenshot2.png)
 
 ## Review
 
